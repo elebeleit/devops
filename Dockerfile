@@ -6,7 +6,7 @@ ENV PKGS_DIR=/install \
     PIP_DEFAULT_TIMEOUT=100
 
 FROM base as builder
-RUN apt upgrade
+RUN apt update
 RUN apt install -y gcc g++
 RUN pip install --upgrade pip
 RUN pip install poetry
