@@ -1,5 +1,4 @@
 name: CI For Devops Demo
-
 on:
   push:
     branches:
@@ -16,7 +15,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.11.8
+        python-version: 3.9
 
     - name: Install dependencies
       run: |
@@ -30,5 +29,6 @@ jobs:
 
     - name: Build Docker image
       if: success()
-      run: echo "The CI was successfull"
-      
+      run: |
+        docker build -t your_dockerhub_username/your_image_name:latest .
+        docker push your_dockerhub_username/your_image_name:latest
